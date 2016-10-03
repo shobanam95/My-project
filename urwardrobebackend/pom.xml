@@ -30,11 +30,13 @@
     	<version>5.1.0.Final</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
 <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-jdbc</artifactId>
-    <version>2.0.6</version>
+    <groupId>commons-dbcp</groupId>
+    <artifactId>commons-dbcp</artifactId>
+    <version>1.4</version>
 </dependency>
+
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-core</artifactId>
@@ -55,10 +57,9 @@
     	<artifactId>h2</artifactId>
     	<version>1.4.191</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+
+    
   </dependencies> 
 </project>
-
-
-  </dependencies>    
-
-</project>
+ 

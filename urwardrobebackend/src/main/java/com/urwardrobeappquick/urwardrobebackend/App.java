@@ -1,13 +1,25 @@
 package com.urwardrobeappquick.urwardrobebackend;
 
-/**
- * Hello world!
- *
- */
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+
+
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
-}
+	private static AnnotationConfigApplicationContext context;
+
+	public static void main(String args[])
+	{
+	
+	context = new AnnotationConfigApplicationContext();
+		
+		context.scan("com.urwardrobe.confiig");
+		 
+	context.refresh();
+	}
+	}
+
+	
+	
+
