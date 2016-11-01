@@ -67,7 +67,7 @@ System.out.println("4");
 	      	      sessionFactory.setAnnotatedClasses(Product.class);
 	      System.out.println("5");
 
-	      	  //  sessionFactory.setAnnotatedClasses(UserForm.class);
+	    //  sessionFactory.setAnnotatedClasses(UserForm.class);
 	 	 	      return sessionFactory;
 	   }
 
@@ -103,7 +103,7 @@ System.out.println("4");
 			Properties properties = new Properties();
 			properties.put("hibernate.show_sql", "true");
 			properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");//This property makes Hibernate generate the appropriate SQL for the chosen database.
-			properties.put("hibernate.hbm2ddl.auto","update");//hibernate.hbm2ddl.auto Automatically validates or exports schema DDL to the database when the SessionFactory 
+			properties.put("hibernate.hbm2ddl.auto","create");//hibernate.hbm2ddl.auto Automatically validates or exports schema DDL to the database when the SessionFactory 
 															//is created. With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly.
 			//validate: validate the schema, makes no changes to the database.
 			//update: update the schema.

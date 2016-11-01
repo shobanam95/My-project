@@ -35,6 +35,7 @@ public void save(UserForm user) {
 	
 		
 	  session.save(user);
+	  session.flush();
 	  System.out.println("Inserted Successfully");
 	 
 	

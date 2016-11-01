@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table
+@Table(name="Products")
 public class Product implements Serializable{
 	private String Product_Name;
 	@Id
@@ -25,7 +25,6 @@ public class Product implements Serializable{
     private int Product_Price;
     private String Category;
 
-   
     
     
     public String getProduct_Name() {

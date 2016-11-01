@@ -3,11 +3,13 @@ package com.urwardrobe.dao;
 
 import java.util.List;
 
-
+import javax.persistence.Query;
+import javax.persistence.criteria.From;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.Fetch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -19,6 +21,9 @@ import com.urwardrobe.service.ProductDaoService;
 @Repository
 
 public class Daoimpl  implements DaoService {
+	private static final String Fetch = null;
+
+
 	public SessionFactory getSessionfactory() {
 		return sessionfactory;
 	}
@@ -33,10 +38,10 @@ public class Daoimpl  implements DaoService {
 	
 	public void save(Product prdt) {
 		Session session = this.sessionfactory.getCurrentSession();
-			 session.save(prdt);
+		session.save(prdt);
 		  System.out.println("Inserted Successfully");
-		 session.flush();
-			  
+		
+		   
 		 }
 		
 @Transactional
@@ -45,8 +50,9 @@ public class Daoimpl  implements DaoService {
 		
 		
 		  session.update(prdt);
+		  session.clear();
 		  System.out.println("Updated Successfully");
-		  session.close();
+		  
 			  
 		 }	
 		
@@ -57,14 +63,24 @@ public class Daoimpl  implements DaoService {
 		
 		  session.delete(prdt);
 		  System.out.println("Inserted Successfully");
-		  session.close();
+		  
 			
 		  
 		 }
+@SuppressWarnings("unchecked")
+@Transactional
 public List<Product> listProduct() {
-	Session session = this.sessionfactory.getCurrentSession();
-	  List<Product> list = session.createCriteria(Product.class).list();
-	return list;
+	Session session = sessionfactory.openSession();
+	
+	List<Product> prdtlist = session.createQuery("from Products" ).list();
+	Query query = (Query) session.createQuery("from Products");
+    query.executeUpdate();
+    
+	
+	return prdtlist;
+
+
+	
 	
 }
 public Product getProduct(int product_Id) {
